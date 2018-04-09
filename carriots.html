@@ -1,0 +1,69 @@
+<script type="text/x-red" data-template-name="carriots">
+  <div class="form-row">
+    <label for="node-input-api_key"><i class="icon-lock"></i> <span data-i18n="carriots.api"></span></label>
+    <input type="text" id="node-input-api_key" data-i18n="[placeholder]carriots.api">
+  </div>
+
+  <br />
+
+  <div class="form-row">
+    <label for="node-input-device"><i class="icon-tasks"></i> <span data-i18n="carriots.device"></span></label>
+    <input type="text" id="node-input-device" data-i18n="[placeholder]carriots.device">
+  </div>
+
+  <br/>
+
+  <div class="form-row">
+    <label for="node-input-topic"><i class="icon-tag"></i> <span data-i18n="carriots.topic"></span></label>
+    <input type="text" id="node-input-topic" data-i18n="[placeholder]carriots.topic">
+  </div>
+
+  <br/>
+
+  <div class="form-row">
+    <label for="node-input-name"><i class="icon-tag"></i> <span data-i18n="carriots.name"></span></label>
+    <input type="text" id="node-input-name" data-i18n="[placeholder]carriots.name">
+  </div>
+</script>
+
+<script type="text/x-red" data-help-name="carriots">
+  <font size="-2">Enables data collection from connected objects</font>
+  <h2><p>Carriots</p></h2>
+  <font size="-1"><p>Create amazing products and services with their Internet of Things Platform. Connect your things to the Internet easily.</p>
+  <p>A free Carriots account is necessary : http://carriots.com</p></font>
+
+  <p><b>Node description :</b></p>
+  <font size="-1"><p>Carriots is like a mailbox in which you can store all types of data and next create graphs.</p>
+  <p>Outputs an object called <b>msg</b> containing a <b>topic</b> and a <b>payload</b>.</p>
+  <p>To see your data, go on https://cpanel.carriots.com/stream/ with your account.</p></font>
+
+  <p><b>How to : </b></p>
+  <font size="-1"><p>- api_key : Token which is used to authenticate. Your key can be found on the website on your account page<br />
+  - device : Name of the device to send the data.<br />
+  - topic : Topic of the data sent.</p></font>
+
+  <p><b>Time : </b></p>
+  <font size="-1">A time can be specified in <b>msg.timestamp</b>. This time has to be a timestamp.</font>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('carriots',{
+    category: 'storage',
+    color: "#fff",
+    defaults: {
+      name: {value: ""},
+      topic: {values: ""},
+      api_key: {value: ""},
+      device: {value: ""}
+    },
+    inputs: 1,
+    outputs: 0,
+    icon: "carriots.png",
+    label: function() {
+      return this.name||this.topic||"carriots";
+    },
+    labelStyle: function() {
+      return this.name?"node_label_italic":"";
+    }
+  });
+</script>
