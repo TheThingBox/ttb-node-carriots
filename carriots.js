@@ -12,7 +12,7 @@ module.exports = function(RED) {
         topic: value
       },
       checksum: ""
-    }
+    })
 
     request.post({
       headers: {
